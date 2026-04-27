@@ -1,0 +1,182 @@
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* 👇 cuando haces scroll */
+.navbar.scrolled {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+  width: auto;
+  color: white;
+  font-weight: bold;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+/* hover elegante */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: gold;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* idioma */
+.lang-switch {
+  display: flex;
+  gap: 5px;
+}
+
+.lang-switch button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lang-switch button.active {
+  background: gold;
+  color: black;
+}
+
+/* 👇 separar mobile / desktop */
+.lang-switch.mobile {
+  display: none;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .lang-switch.desktop {
+    display: none;
+  }
+
+  .lang-switch.mobile {
+    display: flex;
+    margin-top: 10px;
+  }
+}
+
+/* HAMBURGUESA */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+
+/* animación a X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(0,0,0,0.95);
+
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    padding: 20px 0;
+  }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(0,0,0,0.9);
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    padding: 20px 0;
+  }
+}
