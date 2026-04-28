@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/LenguageContext";
 import './components-css/Hero.css';
-
-const base = import.meta.env.BASE_URL;
+import lasbrasas from '../imagenes/lasbrasas.png'
+import imagen from '../imagenes/imagen.png';
 
 const images = [
-  `${base}lasbrasas.png`,
+  lasbrasas,
   "https://images.unsplash.com/photo-1558030006-450675393462",
   "https://images.unsplash.com/photo-1552566626-52f8b828add9",
-  `${base}imagen.png`,
+  imagen,
 ];
 
 export const Hero = () => {

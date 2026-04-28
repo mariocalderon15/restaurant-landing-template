@@ -3,26 +3,28 @@ import { useLanguage } from "../context/LenguageContext";
 import './components-css/NavBar.css';
 
 export const Navbar = () => {
+  //PROPS
   const { lang, setLang, t } = useLanguage();
 
+  //HOOKS
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // 👇 detectar scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+useEffect( () =>{
+  const handleScroll = ()=>{
+    setScrolled(window.scrollY > 50);
+  }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  window.addEventListener('scroll', handleScroll);
 
-  // 👇 cerrar al hacer click fuera
+  return () => window.removeEventListener('scroll', handleScroll);
+},[]);
+
+  
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };
@@ -40,7 +42,7 @@ export const Navbar = () => {
         className={`hamburger ${open ? "open" : ""}`}
         onClick={() => setOpen(!open)}
       >
-        <span></span>
+        <span>{t.menu}</span>
         <span></span>
         <span></span>
       </div>
