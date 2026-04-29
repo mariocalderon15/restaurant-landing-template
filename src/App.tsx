@@ -3,10 +3,10 @@ import { Navbar } from './components/navBar.tsx';
 import { Location } from './components/Location.tsx';
 import CocinaSlider from './components/CocinaSlider.tsx';
 import { Hero } from './components/Hero.tsx';
-import WhatsAppButton from './components/fab-button/WhatsAppButton.tsx';
+import WhatsAppButton from './fab-button/WhatsAppButton.tsx';
 import { useLanguage } from "./context/LenguageContext.tsx";
-import { ReservaBtn } from './components/fab-button/reservaBtn.tsx';
-import { RenderModal } from './components/components-css/render-modal/RenderModal.tsx'; 
+import { ReservaBtn } from './fab-button/reservaBtn.tsx';
+import { RenderModal } from './render-modal/RenderModal.tsx'; 
 import { useState } from 'react';
 
 

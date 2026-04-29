@@ -1,5 +1,5 @@
 import './reservaBtn.css'
-import { useLanguage } from '../../context/LenguageContext';
+import { useLanguage } from '../context/LenguageContext';
 
 
 interface Props {

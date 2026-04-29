@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useReveal } from "../hook/useReveal";
 import { useLanguage } from "../context/LenguageContext";
+import './modules-css/CocinaSlider.css';
 
 const images = [
   "https://images.unsplash.com/photo-1551218808-94e220e084d2",

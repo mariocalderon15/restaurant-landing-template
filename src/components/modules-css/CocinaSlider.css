@@ -1,0 +1,31 @@
+.cocina {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(6px);
+  transition: all 0.8s ease;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.imgBox {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.split {
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+

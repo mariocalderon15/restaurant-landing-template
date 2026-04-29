@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/LenguageContext";
-import './components-css/NavBar.css';
+import './modules-css/NavBar.css';
 
 export const Navbar = () => {
   //PROPS
@@ -11,17 +11,17 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-useEffect( () =>{
-  const handleScroll = ()=>{
-    setScrolled(window.scrollY > 50);
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    }
 
-  window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-  return () => window.removeEventListener('scroll', handleScroll);
-},[]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -35,17 +35,20 @@ useEffect( () =>{
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="logo">Las Brasas</div>
-
+      <div className="logo">
+        <span className="logo-main">Las Brasas</span>
+        <span className="logo-sub">Restaurant</span>
+      </div>
       {/* BOTÓN HAMBURGUESA */}
-      <div
+      <button
         className={`hamburger ${open ? "open" : ""}`}
         onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
       >
-        <span>{t.menu}</span>
         <span></span>
         <span></span>
-      </div>
+        <span></span>
+      Menu</button>
 
       {/* LINKS */}
       <div
