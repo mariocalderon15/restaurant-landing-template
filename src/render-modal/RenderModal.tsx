@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 interface User {
   firstName: string,
   lastName: string,
-  onTable: boolean,
 }
 
 interface Props {
@@ -26,7 +25,6 @@ export const RenderModal: React.FC<Props> = ({
   const [formData, setFormData] = useState<User>({
     firstName: '',
     lastName: '',
-    onTable: false,
   });
 
   // Cargar datos si hay usuario
@@ -48,18 +46,7 @@ export const RenderModal: React.FC<Props> = ({
 
   if (!isOpen) return null;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox'
-        ? checked
-        : name === 'balance'
-          ? Number(value)
-          : value
-    }));
-  };
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
@@ -86,6 +73,7 @@ export const RenderModal: React.FC<Props> = ({
     });
 
     onClose();
+    
 
   } catch (error) {
     Swal.fire({
@@ -113,25 +101,14 @@ export const RenderModal: React.FC<Props> = ({
           <input
             name="firstName"
             value={formData.firstName}
-            onChange={handleChange}
+           
           />
 
           <label>Last Name</label>
           <input
             name="lastName"
             value={formData.lastName}
-            onChange={handleChange}
           />
-
-          <div>
-            <input
-              type="checkbox"
-              name="onTable"
-              checked={formData.onTable}
-              onChange={handleChange}
-            />
-            <label> Is Active</label>
-          </div>
 
           <button type="submit" className="save-button">
             Save

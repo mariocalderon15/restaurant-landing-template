@@ -8,8 +8,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh; /* ⚠️ corregido (tenías 140vw) */
-    
+    height: 100vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,7 +88,8 @@ form{
     border-radius: 10px;
 
     background: linear-gradient(135deg, #6c63ff, #5a52e0);
-    color: white;
+    background-color: gold;
+    color: black;
     font-weight: 600;
 
     cursor: pointer;
@@ -138,7 +138,7 @@ form{
     border-radius: 50%;
 
     background: rgba(0,0,0,0.05);
-    color: #555;
+    color: black;
 
     font-size: 18px;
     font-weight: bold;
