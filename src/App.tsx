@@ -3,11 +3,23 @@ import { Navbar } from './components/navBar.tsx';
 import { Location } from './components/Location.tsx';
 import CocinaSlider from './components/CocinaSlider.tsx';
 import { Hero } from './components/Hero.tsx';
-import WhatsAppButton from './components/WhatsAppButton.tsx';
+import WhatsAppButton from './components/fab-button/WhatsAppButton.tsx';
 import { useLanguage } from "./context/LenguageContext.tsx";
+import { ReservaBtn } from './components/fab-button/reservaBtn.tsx';
+import { RenderModal } from './components/components-css/render-modal/RenderModal.tsx'; 
+import { useState } from 'react';
+
+
+
 
 function App() {
   const { t } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+   const handleSave = async (user: any) => {
+    console.log(user);
+    // aquí llamas a tu API
+  };
 
   return (
     <div>
@@ -44,6 +56,12 @@ function App() {
       <section className="section">
         <h2>Reserva tu mesa</h2>
         <WhatsAppButton/>
+       <ReservaBtn onOpen={() => setIsModalOpen(true)} />
+        <RenderModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSave}
+      />
       </section>
     </div>
   )

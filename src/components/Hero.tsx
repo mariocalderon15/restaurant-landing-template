@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "../context/LenguageContext";
 import './components-css/Hero.css';
 import lasbrasas from '../imagenes/lasbrasas.png'
 import imagen from '../imagenes/imagen.png';
@@ -12,7 +11,7 @@ const images = [
 ];
 
 export const Hero = () => {
-  const { t } = useLanguage();
+
 
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
@@ -47,10 +46,6 @@ export const Hero = () => {
         src={images[index]}
         alt="Restaurante"
       />
-
-      <div className="hero-content">
-        <button className="reserve-btn">{t.reserve}</button>
-      </div>
     </section>
   );
 };
