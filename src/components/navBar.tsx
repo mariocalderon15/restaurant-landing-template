@@ -10,21 +10,25 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const hamburgerRef = useRef<HTMLButtonElement | null>(null); // Agregamos una referencia para el botón de la hamburguesa
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-    }
+    };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      // Verificamos si el clic ocurrió fuera del menú y el botón hamburguesa
+      if (
+        menuRef.current && !menuRef.current.contains(event.target as Node) &&
+        hamburgerRef.current && !hamburgerRef.current.contains(event.target as Node)
+      ) {
         setOpen(false);
       }
     };
@@ -33,22 +37,30 @@ export const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Función para alternar el estado del menú
+  const toggleMenu = () => {
+    setOpen((prevState) => !prevState);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="logo">
         <span className="logo-main">Las Brasas</span>
         <span className="logo-sub">Restaurant</span>
       </div>
+
       {/* BOTÓN HAMBURGUESA */}
       <button
+        ref={hamburgerRef} // Referencia al botón
         className={`hamburger ${open ? "open" : ""}`}
-        onClick={() => setOpen(!open)}
+        onClick={toggleMenu} // Llamamos a toggleMenu aquí
         aria-label="Toggle menu"
       >
         <span></span>
         <span></span>
         <span></span>
-      Menu</button>
+        Menu
+      </button>
 
       {/* LINKS */}
       <div
