@@ -12,6 +12,8 @@ export const translations = {
     subtitle: "Una experiencia gastronómica única",
     reserve: "Reserva",
     location: "Dónde estamos",
+    swalText: 'Tu mesa ha sido reservada correctamente. Te esperamos',
+    swalTitle: 'Reserva',
   },
   en: {
     home: "Home",
@@ -26,5 +28,7 @@ export const translations = {
     subtitle: "A unique dining experience",
     reserve: "Book a table",
     location: "Where we are located",
+    swalText: 'Your table has been successfully reserved. We look forward to seeing you',
+    swalTitle: 'Book a table',
   },
 };
