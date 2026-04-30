@@ -40,12 +40,14 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="hero">
-      <img
-        className={`hero-img ${fade ? "fade-in" : "fade-out"}`}
-        src={images[index]}
-        alt="Restaurante"
-      />
+   <section className="hero">
+      <div className="image-container">
+        <img
+          className={`hero-img ${fade ? "fade-in" : "fade-out"}`}
+          src={images[index]}
+          alt="Restaurante"
+        />
+      </div>
     </section>
   );
 };

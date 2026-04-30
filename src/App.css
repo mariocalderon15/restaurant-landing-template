@@ -125,6 +125,13 @@ body {
 }
 
 
+
+/* SECTIONS */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
 .fade-img {
   width: 100%;
   height: 100%;
